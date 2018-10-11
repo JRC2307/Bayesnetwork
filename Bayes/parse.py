@@ -1,6 +1,18 @@
 inp = []
-querys = []
+queries = []
 nodes = []
+
+class Node:
+    def __init__(self, name, parents, table):
+        self.name = name
+        self.parents = parents
+        self.table = table
+
+    def __repr__(self):
+        return "node:\n\tname: %s \n\tparents: %s \n\ttable: %s\n" % (self.name, self.parents, self.table)
+
+    def getParents(self):
+        return self.parents
 
 
 def parse_nodes(string):
@@ -46,17 +58,29 @@ def parse_output(string):
         if check_node_exists(aux):
             output_probs["nodes"] = aux
             output_probs["prob"] = None
-            querys.append(output_probs)
+            queries.append(output_probs)
     else:
         temp_node = string.replace("+", "").replace("-", "").replace(" ", "")
         if temp_node in nodes:
             output_probs["nodes"] = string
             output_probs["prob"] = None
-            querys.append(output_probs)
+            queries.append(output_probs)
+
+
+def init_nodes(nodes):
+    node_list = []
+    for var in nodes.split(','):
+        node_list.append(Node(var, [], {}))
+
+    return node_list
+
+def start_bayes(nodes, probs, queries):
+    node_list = init_nodes(nodes)
+
+    return
 
 
 input_nodes = input('Enter nodes: ')
-nodes = parse_nodes(input_nodes)
 
 number_of_nodes = int(input('Enter the number of probabilities: '))
 
@@ -70,6 +94,4 @@ for i in range(0, number_of_nodes):
     parse_output(out_prob)
 
 
-
-print(inp)
-print(querys)
+start_bayes(input_nodes, inp, queries)
