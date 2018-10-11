@@ -1,7 +1,3 @@
-inp = []
-queries = []
-nodes = []
-
 class Node:
     def __init__(self, name, parents, table):
         self.name = name
@@ -13,6 +9,42 @@ class Node:
 
     def getParents(self):
         return self.parents
+
+    def tableParent(self, probs):
+            for n in probs.keys():
+                key = copy.deepcopy(n);
+                n = n.replace("+", "").replace("-", "")
+                queries = n.split("|")
+
+                if self.name == queries[0]:
+                    self.table[key] = probs[key]
+                    if len(queries) == 2:
+                        for parent in queries[1].split(","):
+                            if not parent in self.parents:
+                                self.parents.append(parent)
+                elif len(queries):
+                    if self.name == queries[0]:
+                        self.parents = None
+
+    def tableFill(self):
+        key = None
+        d = copy.deepcopy(self.table)
+        for t in self.table:
+            if t[0] == "+":
+                key = t.replace("+", "-", 1)
+                if not key in self.table:
+                    d[key] = round(1.0 - self.table[t], 5)
+            elif k[0] == "-":
+                key = t.replace("-", "+", 1)
+                if not key in self.table:
+                    d[key] = round(1.0 - self.table[t], 4)
+        self.table = d
+
+
+def set_parents(node_list, inp):
+    for x in node_list:
+        x.addParentandTable()
+        x.completeTable()
 
 
 def parse_nodes(string):
@@ -34,37 +66,12 @@ def check_node_exists(elements):
 
 
 def parse_probabilities(string):
-    prob = string.replace(" ","").split('=')
-    input_probs = {}
-    if "|" in prob[0]:
-        aux = prob[0].split("|")
-        if check_node_exists(aux):
-            input_probs["nodes"] = aux
-            input_probs["prob"] = prob[1]
-            inp.append(input_probs)
-    else:
-        aux = prob[0]
-        aux = aux.replace("+", "").replace("-", "").replace(" ","")
-        if aux in nodes:
-            input_probs["nodes"] = prob[0]
-            input_probs["prob"] = prob[1]
-            inp.append(input_probs)
+    statement_list = {}
+    for statement in string:
+	    variables = statement.split('=')
+        statement_list[variables[0]] = float(variables[1])
 
-
-def parse_output(string):
-    output_probs = {}
-    if "|" in string:
-        aux = string.split("|")
-        if check_node_exists(aux):
-            output_probs["nodes"] = aux
-            output_probs["prob"] = None
-            queries.append(output_probs)
-    else:
-        temp_node = string.replace("+", "").replace("-", "").replace(" ", "")
-        if temp_node in nodes:
-            output_probs["nodes"] = string
-            output_probs["prob"] = None
-            queries.append(output_probs)
+	return statement_list
 
 
 def init_nodes(nodes):
@@ -76,6 +83,8 @@ def init_nodes(nodes):
 
 def start_bayes(nodes, probs, queries):
     node_list = init_nodes(nodes)
+    prob = parse_probabilities(probs)
+
 
     return
 
@@ -84,14 +93,17 @@ input_nodes = input('Enter nodes: ')
 
 number_of_nodes = int(input('Enter the number of probabilities: '))
 
+probs = []
+
 for i in range(0, number_of_nodes):
     probability = input('Enter probability: ')
-    parse_probabilities(probability)
+    probs.append(probability)
+
+queries = []
 
 output_number = int(input('Enter number of outputs: '))
 for i in range(0, number_of_nodes):
     out_prob = input('Enter probability: ')
-    parse_output(out_prob)
+    queries.append(out_prob)
 
-
-start_bayes(input_nodes, inp, queries)
+start_bayes(input_nodes, probs, queries)
