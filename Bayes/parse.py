@@ -140,6 +140,88 @@ def reverse(combinations):
     return reversed_list
 
 
+def regla_cadena(permutations, list):
+    probabilidad = 0.0
+    marker = True
+    probs = []
+    for element in permutations:
+        probabilities = []
+        #If it's not a terminal
+        if type(element) is list:
+            for e in element:
+                name = e.replace("-", "").replace("+", "")
+                next_node = find_node(name, list)
+                if next_node.parents:
+                    permutations = itertools.permutations(range(0, len(next_node.parents)))
+                    for p in permutations:
+                        parent_nodes = []
+                        for l in p:
+                            if "+" + next_node.parents[l] in element:
+                                parent_nodes.append("+" + next_node.parents[l])
+                            elif "-" + next_node.parents[l] in element:
+                                parent_nodes.append("-" + next_node.parents[l])
+                        parents_string = e + "|"
+                        for i in range(len(parent_nodes)):
+                            parents_string += parent_nodes[i]
+                            if i < len(parent_nodes) - 1:
+                                parents_string += ","
+                        if parents_string in next_node.table:
+                            value = next_node.table[parents_string]
+                            probabilities.append(value)
+
+                else:
+                    value = next_node.table[e]
+                    probabilities.append(value)
+            probs.append(probabilities)
+        #its terminal
+        else:
+            if element:
+                name = element.replace("-", "").replace("+", "")
+                next_node = find_node(name, list)
+                if next_node.parents:
+                    permutations = itertools.permutations(range(0, len(next_node.parents)))
+                    for p in permutations:
+                        parent_nodes = []
+                        for l in p:
+
+                            if "+" + next_node.parents[l] in permutations:
+                                parent_nodes.append("+" + next_node.parents[l])
+                            elif "-" + next_node.parents[l] in permutations:
+                                parent_nodes.append("-" + next_node.parents[l])
+                        parents_string = element + "|"
+
+                        for i in range(len(parent_nodes)):
+                            parents_string += parent_nodes[i]
+                            if i < len(parent_nodes) - 1:
+                                parents_string += ","
+                        if parents_string in next_node.table:
+                            value = next_node.table[parents_string]
+                            probabilities.append(value)
+
+                else:
+                    value = next_node.table[element]
+                    probabilities.append(value)
+                probs.append(probabilities[0])
+
+    multiplicador = 1.0
+
+    for element in probs:
+        if type(element) is list:
+            marker = True
+            multiplicador = 1.0
+            for e in element:
+                multiplicador *= e
+            probabilidad += multiplicador
+        else:
+            marker = False
+            multiplicador *= element
+    if marker:
+        return probabilidad
+    else:
+        return multiplicador
+
+
+
 def init_nodes(nodes):
     node_list = []
     for var in nodes.split(','):

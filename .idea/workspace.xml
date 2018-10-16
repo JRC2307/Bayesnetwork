@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be79795e-e5fe-4bb8-a68f-deb04cce30cc" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Bayes/parse.py" afterPath="$PROJECT_DIR$/Bayes/parse.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file leaf-file-name="parse.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bayes/parse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="693">
+              <caret line="172" column="25" lean-forward="false" selection-start-line="172" selection-start-column="20" selection-end-line="172" selection-end-column="25" />
               <folding>
                 <element signature="e#1551#1810#0" expanded="false" />
                 <element signature="e#1850#1928#0" expanded="false" />
@@ -26,10 +27,10 @@
                 <element signature="e#2448#2527#0" expanded="false" />
                 <element signature="e#2553#3683#0" expanded="false" />
                 <element signature="e#3717#4033#0" expanded="false" />
-                <element signature="e#4063#4176#0" expanded="false" />
-                <element signature="e#4223#4303#0" expanded="false" />
-                <element signature="e#4343#4517#0" expanded="false" />
-                <element signature="e#4557#4793#0" expanded="false" />
+                <element signature="e#7400#7513#0" expanded="false" />
+                <element signature="e#7560#7640#0" expanded="false" />
+                <element signature="e#7680#7854#0" expanded="false" />
+                <element signature="e#7894#8130#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -38,14 +39,17 @@
       <file leaf-file-name="Bayes (1).py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/Bayes (1).py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="196" selection-end-column="17" />
+            <state relative-caret-position="721">
+              <caret line="370" column="0" lean-forward="true" selection-start-line="370" selection-start-column="0" selection-end-line="370" selection-end-column="0" />
               <folding>
                 <element signature="e#2762#3284#0" expanded="false" />
                 <element signature="e#3355#5989#0" expanded="false" />
+                <element signature="e#6181#6441#0" expanded="false" />
                 <element signature="e#6494#6827#0" expanded="false" />
                 <element signature="e#6875#7970#0" expanded="false" />
                 <element signature="e#7997#8313#0" expanded="false" />
+                <element signature="e#8365#12134#0" expanded="false" />
+                <element signature="e#12182#12395#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -192,6 +196,25 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -215,10 +238,10 @@
             <element signature="e#2448#2527#0" expanded="false" />
             <element signature="e#2553#3683#0" expanded="false" />
             <element signature="e#3717#4033#0" expanded="false" />
-            <element signature="e#4063#4176#0" expanded="false" />
-            <element signature="e#4223#4303#0" expanded="false" />
-            <element signature="e#4343#4517#0" expanded="false" />
-            <element signature="e#4557#4793#0" expanded="false" />
+            <element signature="e#7400#7513#0" expanded="false" />
+            <element signature="e#7560#7640#0" expanded="false" />
+            <element signature="e#7680#7854#0" expanded="false" />
+            <element signature="e#7894#8130#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -243,10 +266,10 @@
             <element signature="e#2448#2527#0" expanded="false" />
             <element signature="e#2553#3683#0" expanded="false" />
             <element signature="e#3717#4033#0" expanded="false" />
-            <element signature="e#4063#4176#0" expanded="false" />
-            <element signature="e#4223#4303#0" expanded="false" />
-            <element signature="e#4343#4517#0" expanded="false" />
-            <element signature="e#4557#4793#0" expanded="false" />
+            <element signature="e#7400#7513#0" expanded="false" />
+            <element signature="e#7560#7640#0" expanded="false" />
+            <element signature="e#7680#7854#0" expanded="false" />
+            <element signature="e#7894#8130#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -269,22 +292,25 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Bayes (1).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="196" selection-end-column="17" />
+        <state relative-caret-position="721">
+          <caret line="370" column="0" lean-forward="true" selection-start-line="370" selection-start-column="0" selection-end-line="370" selection-end-column="0" />
           <folding>
             <element signature="e#2762#3284#0" expanded="false" />
             <element signature="e#3355#5989#0" expanded="false" />
+            <element signature="e#6181#6441#0" expanded="false" />
             <element signature="e#6494#6827#0" expanded="false" />
             <element signature="e#6875#7970#0" expanded="false" />
             <element signature="e#7997#8313#0" expanded="false" />
+            <element signature="e#8365#12134#0" expanded="false" />
+            <element signature="e#12182#12395#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Bayes/parse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="693">
+          <caret line="172" column="25" lean-forward="false" selection-start-line="172" selection-start-column="20" selection-end-line="172" selection-end-column="25" />
           <folding>
             <element signature="e#1551#1810#0" expanded="false" />
             <element signature="e#1850#1928#0" expanded="false" />
@@ -293,10 +319,10 @@
             <element signature="e#2448#2527#0" expanded="false" />
             <element signature="e#2553#3683#0" expanded="false" />
             <element signature="e#3717#4033#0" expanded="false" />
-            <element signature="e#4063#4176#0" expanded="false" />
-            <element signature="e#4223#4303#0" expanded="false" />
-            <element signature="e#4343#4517#0" expanded="false" />
-            <element signature="e#4557#4793#0" expanded="false" />
+            <element signature="e#7400#7513#0" expanded="false" />
+            <element signature="e#7560#7640#0" expanded="false" />
+            <element signature="e#7680#7854#0" expanded="false" />
+            <element signature="e#7894#8130#0" expanded="false" />
           </folding>
         </state>
       </provider>
