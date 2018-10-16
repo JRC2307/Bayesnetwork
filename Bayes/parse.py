@@ -1,3 +1,7 @@
+import copy
+import itertools
+import math
+
 class Node:
     def __init__(self, name, parents, table):
         self.name = name
@@ -34,7 +38,7 @@ class Node:
                 key = t.replace("+", "-", 1)
                 if not key in self.table:
                     d[key] = round(1.0 - self.table[t], 5)
-            elif k[0] == "-":
+            elif t[0] == "-":
                 key = t.replace("-", "+", 1)
                 if not key in self.table:
                     d[key] = round(1.0 - self.table[t], 4)
@@ -43,7 +47,7 @@ class Node:
 
 def set_parents(node_list, inp):
     for x in node_list:
-        x.addParentandTable()
+        x.addParentandTable(inp)
         x.completeTable()
 
 
@@ -53,25 +57,55 @@ def parse_nodes(string):
     return list
 
 
-def check_node_exists(elements):
-    for e in elements:
-        element = e.replace("+", "").replace("-", "").replace(" ", "")
-        if element in nodes:
-            print(element)
-            print(nodes)
-            continue
-        else:
-            return False
-    return True
-
-
 def parse_probabilities(string):
     statement_list = {}
     for statement in string:
-	    variables = statement.split('=')
+        variables = statement.split('=')
         statement_list[variables[0]] = float(variables[1])
+    return statement_list
 
-	return statement_list
+
+def parse_queries(string, list):
+    for s in string:
+        num = ""
+        den = ""
+
+        aux = s.split('|')
+        if len(aux) == 2:
+            num = aux[0] + ',' + aux[1]
+            den = aux[1]
+        elif len(aux) == 1:
+            num = aux[0]
+
+    return 0
+
+
+def find_node(name, list):
+    for n in list:
+        if n.name == name:
+            return n
+    return False
+
+
+def conditional_probability(numerator, denominator, list):
+    numhid = []
+    input_num = numerator.split(',')
+    for e in input_num:
+
+        if "+" in e:
+            aux = e.replace('+', "")
+        elif "-" in e:
+            aux = e.replace('-', "")
+        node = find_node(aux, list)
+
+        ancestors = []
+        if node.parents:
+            find_node(node, list, ancestors)
+
+        for ancestor in ancestors:
+
+            if not ("+" + ancestor) in input_num and not ("-" + ancestor) in input_num and not (ancestor in numhid):
+                numhid.append(ancestor)
 
 
 def init_nodes(nodes):
