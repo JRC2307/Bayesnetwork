@@ -45,36 +45,30 @@ class Node:
         self.table = d
 
 
+def get_hidden_vars(known, permutations):
+    result = []
+    aux = []
+    for i in range(len(permutations)):
+        aux = []
+        for element in known:
+            aux.append(element)
+        for element in permutations[i]:
+            aux.append(element)
+        result.append(aux)
+    return result
+
+
 def set_parents(node_list, inp):
     for x in node_list:
         x.addParentandTable(inp)
         x.completeTable()
+
 
 def parse_nodes(string):
     string = string.replace(" ", "")
     list = string.split(',')
     return list
 
-def parse_probabilities(string):
-    statement_list = {}
-    for statement in string:
-        variables = statement.split('=')
-        statement_list[variables[0]] = float(variables[1])
-    return statement_list
-
-def parse_queries(string, list):
-    for s in string:
-        num = ""
-        den = ""
-
-        aux = s.split('|')
-        if len(aux) == 2:
-            num = aux[0] + ',' + aux[1]
-            den = aux[1]
-        elif len(aux) == 1:
-            num = aux[0]
-
-    return 0
 
 def get_ancestors(node, list, ancestors):
     if node.parents:
@@ -87,11 +81,13 @@ def get_ancestors(node, list, ancestors):
         if node.name not in ancestors:
             ancestors.append(node.name)
 
+
 def find_node(name, list):
     for n in list:
         if n.name == name:
             return n
     return False
+
 
 def permute(vars):
     permutations = []
@@ -129,6 +125,7 @@ def permute(vars):
 
     return permutations
 
+
 def reverse(combinations):
     reversed_list = []
     aux = []
@@ -158,6 +155,28 @@ def start_bayes(nodes, probs, queries):
 
     return
 
+
+def parse_probabilities(string):
+    statement_list = {}
+    for statement in string:
+        variables = statement.split('=')
+        statement_list[variables[0]] = float(variables[1])
+    return statement_list
+
+
+def parse_queries(string, list):
+    for s in string:
+        num = ""
+        den = ""
+
+        aux = s.split('|')
+        if len(aux) == 2:
+            num = aux[0] + ',' + aux[1]
+            den = aux[1]
+        elif len(aux) == 1:
+            num = aux[0]
+
+    return 0
 
 input_nodes = input('Enter nodes: ')
 
