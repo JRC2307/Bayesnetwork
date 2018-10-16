@@ -50,12 +50,10 @@ def set_parents(node_list, inp):
         x.addParentandTable(inp)
         x.completeTable()
 
-
 def parse_nodes(string):
     string = string.replace(" ", "")
     list = string.split(',')
     return list
-
 
 def parse_probabilities(string):
     statement_list = {}
@@ -63,7 +61,6 @@ def parse_probabilities(string):
         variables = statement.split('=')
         statement_list[variables[0]] = float(variables[1])
     return statement_list
-
 
 def parse_queries(string, list):
     for s in string:
@@ -79,6 +76,16 @@ def parse_queries(string, list):
 
     return 0
 
+def get_ancestors(node, list, ancestors):
+    if node.parents:
+        for element in node.parents:
+            if element not in ancestors:
+                ancestors.append(element)
+            next_node = find_node(element, list)
+            get_ancestors(next_node, list, ancestors)
+    else:
+        if node.name not in ancestors:
+            ancestors.append(node.name)
 
 def find_node(name, list):
     for n in list:
@@ -86,26 +93,54 @@ def find_node(name, list):
             return n
     return False
 
+def permute(vars):
+    permutations = []
+    positive_elements = copy.deepcopy(vars)
+    negative_elements = copy.deepcopy(vars)
+    permutation_list = []
+    number = 0
 
-def conditional_probability(numerator, denominator, list):
-    numhid = []
-    input_num = numerator.split(',')
-    for e in input_num:
+    negative_aux = True
 
-        if "+" in e:
-            aux = e.replace('+', "")
-        elif "-" in e:
-            aux = e.replace('-', "")
-        node = find_node(aux, list)
+    for i in range(len(positive_elements)):
+        positive_elements[i] = "+" + positive_elements[i]
+    for i in range(len(negative_elements)):
+        negative_elements[i] = "-" + negative_elements[i]
 
-        ancestors = []
-        if node.parents:
-            find_node(node, list, ancestors)
+    for i in range(2 ** (len(vars) - 1)):
+        number = math.ceil(math.sqrt(i))
+        if number == 0:
+            number = 1
+        permutation_list = []
+        for j in range(len(vars)):
+            if j != number - 1:
+                permutation_list.append(positive_elements[j])
+            else:
+                if negative_aux:
+                    permutation_list.append(positive_elements[j])
+                    negative_aux = False
+                else:
+                    permutation_list.append(negative_elements[j])
+                    negative_aux = True
+        permutations.append(permutation_list)
+    rev_permutations = reverse(permutations)
+    for r in rev_permutations:
+        permutations.append(r)
 
-        for ancestor in ancestors:
+    return permutations
 
-            if not ("+" + ancestor) in input_num and not ("-" + ancestor) in input_num and not (ancestor in numhid):
-                numhid.append(ancestor)
+def reverse(combinations):
+    reversed_list = []
+    aux = []
+    for e in combinations:
+        aux =[]
+        for item in e:
+            if "+" in item:
+                aux.append(item.replace("+", "-"))
+            elif "-" in item:
+                aux.append(item.replace("-", "+"))
+        reversed_list.append(aux)
+    return reversed_list
 
 
 def init_nodes(nodes):
@@ -114,6 +149,7 @@ def init_nodes(nodes):
         node_list.append(Node(var, [], {}))
 
     return node_list
+
 
 def start_bayes(nodes, probs, queries):
     node_list = init_nodes(nodes)
